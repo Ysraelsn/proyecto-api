@@ -12,12 +12,12 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('planifications', function (Blueprint $table) {
-            $table->id();
+            $table->id('id');
             $table->integer('event_id');
             $table->integer('company_id');
             $table->date('hire_date');
             $table->string('status')->default('pending');
-            $table->decimal('budget_used', 10, 2)->default(0);
+            $table->float('budget_used', 10, 2)->default(0);
             $table->text('notes')->nullable();
             $table->date('start_date')->nullable();
             $table->date('end_date')->nullable();

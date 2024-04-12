@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->text('description');
             $table->string('contact');
-            $table->string('type');
+            $table->string('types');
             $table->timestamps();
         });
     }
