@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('address');
             $table->integer('capacity');
             $table->decimal('price', 10, 2);
+            $table->string('imageURL');
             $table->timestamps();
         });
     }
