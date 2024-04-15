@@ -2,16 +2,17 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Customer extends Model
+class Category extends Model
 {
     /**
      * The table associated with the model.
      *
      * @var string
      */
-    protected $table = 'customers';
+    protected $table = 'categories';
 
     /**
      * The primary key associated with the table.
@@ -26,19 +27,10 @@ class Customer extends Model
      * @var array
      */
     protected $fillable = [
-        'full_name',
-        'email',
-        'phone_number',
-        'age',
-        'budget',
+        'name',
+        'description'
     ];
-    public function setAgeAttribute($value)
-{
-    $this->attributes['age'] = (int) $value;
-}
+   
 
-public function setBudgetAttribute($value)
-{
-    $this->attributes['budget'] = (int) $value;
-}
+
 }

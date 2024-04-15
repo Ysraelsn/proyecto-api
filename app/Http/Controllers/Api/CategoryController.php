@@ -3,23 +3,22 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Customer;
 use Illuminate\Http\Request;
+use App\Models\Category;
 
-class CustomerController extends Controller
+class CategoryController extends Controller
 {
     public function list(){
-        $customers = Customer::all();
+        $categories = Category::all();
         $list = [];
 
-        foreach($customers as $customer){
+        foreach($categories as $category){
             $object = [
-                "id"=>$customer->id,
-                "full_name"=>$customer->full_name,
-                "email"=>$customer->email,
-                "phone_number"=>$customer->phone_number,
-                "age"=>$customer->age,
-                "budget"=>$customer->budget
+                "id"=>$category->id,
+                "name"=>$category->name,
+                "description"=>$category->description,
+                
+                
             ];
             array_push($list,$object);
 
@@ -28,15 +27,14 @@ class CustomerController extends Controller
     }
     public function item($id)
 {
-           $customer = Customer::where('id','=', $id)->first();
+           $category = category::where('id','=', $id)->first();
         
             $object = [
-                "id"=>$customer->id,
-               "full_name"=>$customer->full_name,
-                "email"=>$customer->email,
-                "phone_number"=>$customer->phone_number,
-                "age"=>$customer->age,
-                "budget"=>$customer->budget
+                "id"=>$category->id,
+                "name"=>$category->name,
+                "description"=>$category->description,
+                
+                
             ];
                  
         return response()->json($object);
@@ -45,7 +43,7 @@ class CustomerController extends Controller
     {
         $data = $request->all();
 
-        $record = Customer::findOrFail($id);
+        $record = Category::findOrFail($id);
         $record->update($data);
 
         return response()->json($record, 200);
@@ -56,7 +54,7 @@ class CustomerController extends Controller
     {
         $data = $request->all();
 
-        $record = Customer::create($data);
+        $record = Category::create($data);
 
         return response()->json($record, 201);
     }
@@ -69,7 +67,7 @@ class CustomerController extends Controller
      */
     public function destroy($id)
     {
-        $record = Customer::findOrFail($id);
+        $record = Category::findOrFail($id);
         $record->delete();
 
         return response()->json(null, 204);

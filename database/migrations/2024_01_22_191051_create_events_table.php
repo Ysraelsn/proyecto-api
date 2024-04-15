@@ -13,10 +13,21 @@ return new class extends Migration
     {
         Schema::create('events', function (Blueprint $table) {
             $table->id('id');
+            $table->string('name');
+            $table->string('description');
             $table->integer('customer_id');
             $table->integer('location_id');
-            $table->date('date');
-            $table->string('event_type');
+            $table->integer('service_id');
+            $table->date('hire_date');
+            $table->string('status');
+            $table->integer('budget_used');
+            $table->string('notes');
+            $table->date('event_date');
+            $table->integer('attendance');
+            $table->string('feedback');
+            $table->date('completion_date');
+            $table->integer('organizer_id');    
+            $table->string('type');
             $table->timestamps();
         });
     }

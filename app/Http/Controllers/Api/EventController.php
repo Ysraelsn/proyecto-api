@@ -18,10 +18,21 @@ class EventController extends Controller
         foreach($events as $event){
             $object = [
                 "id"=>$event->id,
-                "customer_name"=>$event->client->first_name,
+                "name"=>$event->name,
+                "description"=>$event->description,
+                "customer_name"=>$event->customer->full_name,
                 "location_name"=>$event->location->name,
-                "date"=>$event->date,
-                "event_type"=>$event->event_type,
+                "service_name"=>$event->service->name,
+                "hire_date"=>$event->hire_date,
+                "status"=>$event->status, 
+                "budget_used"=>$event->budget_used,     
+                "notes"=>$event->notes,
+                "event_date"=>$event->event_date,
+                "attendance"=>$event->attendance,
+                "feedback"=>$event->feedback,
+                "completion_date"=>$event->completion_date,
+                "organizerName" =>$event->user->name,
+                "type"=>$event->type
                 
                 
             ];
@@ -36,11 +47,22 @@ class EventController extends Controller
     
     if ($event) {
         $object = [
-            "id" => $event->id,
-            "customer_name"=>$event->client->first_name,
-            "location_name"=>$event->location->name,
-            "date" => $event->date,
-            "event_type" => $event->event_type,
+            "id"=>$event->id,
+                "name"=>$event->name,
+                "description"=>$event->description,
+                "customer_name"=>$event->customer->full_name,
+                "location_name"=>$event->location->name,
+                "service_name"=>$event->service->name,
+                "hire_date"=>$event->hire_date,
+                "status"=>$event->status, 
+                "budget_used"=>$event->budget_used,   
+                "notes"=>$event->notes,
+                "event_date"=>$event->event_date,
+                "attendance"=>$event->attendance,
+                "feedback"=>$event->feedback,
+                "completion_date"=>$event->completion_date,
+                "organizerName" =>$event->user->name,
+                "type"=>$event->type
             
         ];
 
@@ -53,24 +75,26 @@ class EventController extends Controller
 public function search(Request $request)
 {
     $keyword = $request->input('keyword');
-    $events = Event::where('event_type', 'LIKE', '%' . $keyword . '%')->get();
+    $events = Event::where('type', 'LIKE', '%' . $keyword . '%')->get();
     $list = [];
 
     foreach ($events as $event) {
-        $client = $event->client; 
-        $location = $event->location; 
+        $client = $event->customer; 
+        $location = $event->location;
+        $service = $event->service; 
 
-        $clientName = $client->first_name . ' ' . $client->surname;
+        $clientName = $client->full_name;
         $locationName = $location->name;
+        $serviceName = $service->name;
 
         $object = [
             "id" => $event->id,
             "client_name" => $clientName,
             "location_name" => $locationName,
-            "date" => $event->date,
-            "event_type" => $event->event_type,
-            "created_at" => $event->created_at,
-            "updated_at" => $event->updated_at
+            "service_name"=>$serviceName,
+            "date" => $event->event_date,
+            "type" => $event->type,
+           
         ];
 
         array_push($list, $object);

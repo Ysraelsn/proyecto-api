@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id('id');
-            $table->integer('planification_id');
+            $table->integer('event_id');
             $table->string('payment_type');
             $table->decimal('amount', 10, 2);
             $table->date('payment_date');

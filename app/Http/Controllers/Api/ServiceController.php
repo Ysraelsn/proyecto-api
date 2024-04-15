@@ -15,9 +15,13 @@ class ServiceController extends Controller
         foreach($services as $service){
             $object = [
                 "id"=>$service->id,
+                "category_name"=>$service->category->name,
+                "company_name"=>$service->company->name,
                 "name"=>$service->name,
                 "description"=>$service->description,
+                "contact"=>$service->contact,
                 "price"=>$service->price,
+                "type"=>$service->type,
                 "created_at"=>$service->created_at,
                 "updated"=>$service->updated_at
                 
@@ -33,9 +37,13 @@ class ServiceController extends Controller
         
             $object = [
                 "id"=>$service->id,
+                "category_name"=>$service->category->name,
+                "company_name"=>$service->company->name,
                 "name"=>$service->name,
                 "description"=>$service->description,
+                "contact"=>$service->contact,
                 "price"=>$service->price,
+                "type"=>$service->type,
                 "created_at"=>$service->created_at,
                 "updated"=>$service->updated_at
             ];

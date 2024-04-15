@@ -27,7 +27,7 @@ class Service extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'description', 'price',
+        'category_id','company_id','name', 'description','contact', 'price','type'
     ];
 
     /**
@@ -38,4 +38,12 @@ class Service extends Model
     protected $casts = [
         'price' => 'float',
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class,'category_id');
+    }
+    public function company(){
+        return $this->belongsTo(Company::class,'company_id');
+    }
 }

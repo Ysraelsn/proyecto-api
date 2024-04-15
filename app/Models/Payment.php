@@ -22,8 +22,9 @@ class Payment extends Model
      * @var array
      */
     protected $fillable = [
-        'planification_id',
+        'event_id',
         'payment_type',
+        'amount',
         'payment_date',
         'payment_method',
     ];
@@ -40,8 +41,8 @@ class Payment extends Model
     /**
      * Get the planification associated with the payment.
      */
-    public function planification()
+    public function event()
     {
-        return $this->belongsTo(Planification::class);
+        return $this->belongsTo(Event::class);
     }
 }

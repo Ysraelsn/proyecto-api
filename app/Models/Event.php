@@ -27,10 +27,21 @@ class Event extends Model
      * @var array
      */
     protected $fillable = [
+        'name',
+        'description',
         'customer_id',
         'location_id',
-        'payment_date',
-        'event_type',
+        'service_id',
+        'hire_date',
+        'status',
+        'budget_used',
+        'notes',
+        'event_date',
+        'attendance',
+        'feedback',
+        'completion_date',
+        'organizer_id',
+        'type',
     ];
 
     /**
@@ -39,18 +50,24 @@ class Event extends Model
      * @var array
      */
     protected $casts = [
-        'payment_date' => 'date',
+        
     ];
 
     /**
      * Get the client associated with the event.
      */
-    public function client(): BelongsTo
+    public function customer(): BelongsTo
     {
         return $this->belongsTo(Customer::class, 'customer_id');
     }
     public function location(): BelongsTo
     {
         return $this->belongsTo(Location::class, 'location_id');
+    }
+    public function service(): BelongsTo {
+        return $this->belongsTo(Service::class, 'service_id');
+    }
+    public function user(): BelongsTo {
+        return $this->belongsTo(User::class,'organizer_id');
     }
 }

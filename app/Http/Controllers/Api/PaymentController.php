@@ -15,8 +15,9 @@ class PaymentController extends Controller
         foreach($payments as $payment){
             $object = [
                 "id"=>$payment->id,
-                "planification_id"=>$payment->planification_id,
+                "event_name"=>$payment->event->name,
                 "payment_type"=>$payment->payment_type,
+                "amount"=>$payment->amount,
                 "payment_date"=>$payment->payment_date,
                 "payment_method"=>$payment->payment_method,
                 "created_at"=>$payment->created_at,
@@ -33,8 +34,9 @@ class PaymentController extends Controller
         
             $object = [
                 "id"=>$payment->id,
-                "planification_id"=>$payment->planification_id,
+                "event_id"=>$payment->event_id,
                 "payment_type"=>$payment->payment_type,
+                "amount"=>$payment->amount,
                 "payment_date"=>$payment->payment_date,
                 "payment_method"=>$payment->payment_method,
                 "created_at"=>$payment->created_at,
