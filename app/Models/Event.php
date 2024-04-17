@@ -31,7 +31,6 @@ class Event extends Model
         'description',
         'customer_id',
         'location_id',
-        'service_id',
         'hire_date',
         'status',
         'budget_used',

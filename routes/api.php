@@ -12,7 +12,7 @@ use App\Http\Controllers\Api\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\PaymentController;
-use App\Http\Controllers\Api\BigController;
+use App\Http\Controllers\Api\EventServiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -87,7 +87,9 @@ Route::post('/users',[UserController::class,'store']);
 Route::put('/users/{id}',[UserController::class,'update']);
 Route::delete('/users/{id}',[UserController::class,'destroy']);
 
-Route::post('/agregar-datos', [BigController::class, 'agregarDatos']);
+Route::post('/events/{eventId}/services', [EventServiceController::class, 'store']);
+Route::get('/events/{eventId}/services', [EventServiceController::class, 'index']);
+Route::delete('/events/{eventId}/services/{serviceId}', [EventServiceController::class, 'destroy']);
 
 Route::middleware('auth:api')->get('/token', function (Request $request) {
     return $request->user()->createToken('AccessToken')->accessToken;

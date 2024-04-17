@@ -11,13 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('companies', function (Blueprint $table) {
+        Schema::create('event_service', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('address');
-            $table->string('phone');
-            $table->string('email');
-            $table->string('website');
+            $table->bigInteger('event_id');
+            $table->bigInteger('service_id');
             $table->timestamps();
         });
     }
@@ -26,7 +23,7 @@ return new class extends Migration
      * Reverse the migrations.
      */
     public function down(): void
-        {
-            Schema::dropIfExists('companies');
-        }
-    };
+    {
+        Schema::dropIfExists('event_service');
+    }
+};

@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('description');
             $table->integer('customer_id');
             $table->integer('location_id');
-            $table->integer('service_id');
             $table->date('hire_date');
             $table->string('status');
             $table->integer('budget_used');

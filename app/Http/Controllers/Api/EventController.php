@@ -22,7 +22,6 @@ class EventController extends Controller
                 "description"=>$event->description,
                 "customer_name"=>$event->customer->full_name,
                 "location_name"=>$event->location->name,
-                "service_name"=>$event->service->name,
                 "hire_date"=>$event->hire_date,
                 "status"=>$event->status, 
                 "budget_used"=>$event->budget_used,     
@@ -52,7 +51,6 @@ class EventController extends Controller
                 "description"=>$event->description,
                 "customer_name"=>$event->customer->full_name,
                 "location_name"=>$event->location->name,
-                "service_name"=>$event->service->name,
                 "hire_date"=>$event->hire_date,
                 "status"=>$event->status, 
                 "budget_used"=>$event->budget_used,   
@@ -81,17 +79,17 @@ public function search(Request $request)
     foreach ($events as $event) {
         $client = $event->customer; 
         $location = $event->location;
-        $service = $event->service; 
+        
 
         $clientName = $client->full_name;
         $locationName = $location->name;
-        $serviceName = $service->name;
+       
 
         $object = [
             "id" => $event->id,
             "client_name" => $clientName,
             "location_name" => $locationName,
-            "service_name"=>$serviceName,
+            
             "date" => $event->event_date,
             "type" => $event->type,
            
