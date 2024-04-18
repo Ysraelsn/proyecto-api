@@ -43,10 +43,10 @@ Route::put('/locations/{id}',[LocationController::class,'update']);
 Route::delete('/locations/{id}',[LocationController::class,'destroy']);
 
 Route::get('/categories',[CategoryController::class, 'list']);
-Route::get('/categories/{id}',[LocationController::class, 'item']);
-Route::post('/categories',[LocationController::class,'store']);
-Route::put('/categories/{id}',[LocationController::class,'update']);
-Route::delete('/categories/{id}',[LocationController::class,'destroy']);
+Route::get('/categories/{id}',[CategoryController::class, 'item']);
+Route::post('/categories',[CategoryController::class,'store']);
+Route::put('/categories/{id}',[CategoryController::class,'update']);
+Route::delete('/categories/{id}',[CategoryController::class,'destroy']);
 
 Route::get('/services',[ServiceController::class, 'list']);
 Route::get('/services/{id}',[ServiceController::class, 'item']);
