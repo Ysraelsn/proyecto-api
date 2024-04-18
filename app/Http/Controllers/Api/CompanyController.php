@@ -16,7 +16,7 @@ class CompanyController extends Controller
             $object = [
                 "id"=>$company->id,
                 "name"=>$company->name,
-                "address"=>$company->adress,
+                "address"=>$company->address,
                 "phone"=>$company->phone,
                 "email"=>$company->email,
                 "website"=>$company->website,
