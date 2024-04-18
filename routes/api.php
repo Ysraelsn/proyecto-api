@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\PaymentController;
 use App\Http\Controllers\Api\EventServiceController;
+use APp\Http\Controllers\Api\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,12 @@ Route::get('/locations/{id}',[LocationController::class, 'item']);
 Route::post('/locations',[LocationController::class,'store']);
 Route::put('/locations/{id}',[LocationController::class,'update']);
 Route::delete('/locations/{id}',[LocationController::class,'destroy']);
+
+Route::get('/categories',[CategoryController::class, 'list']);
+Route::get('/categories/{id}',[LocationController::class, 'item']);
+Route::post('/categories',[LocationController::class,'store']);
+Route::put('/categories/{id}',[LocationController::class,'update']);
+Route::delete('/categories/{id}',[LocationController::class,'destroy']);
 
 Route::get('/services',[ServiceController::class, 'list']);
 Route::get('/services/{id}',[ServiceController::class, 'item']);
