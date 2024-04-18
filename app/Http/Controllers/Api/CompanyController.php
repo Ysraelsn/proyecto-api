@@ -16,9 +16,11 @@ class CompanyController extends Controller
             $object = [
                 "id"=>$company->id,
                 "name"=>$company->name,
-                "description"=>$company->description,
-                "contact"=>$company->contact,
-                "type"=>$company->type,
+                "address"=>$company->adress,
+                "phone"=>$company->phone,
+                "email"=>$company->email,
+                "website"=>$company->website,
+                
                 
             ];
             array_push($list,$object);
@@ -33,9 +35,10 @@ class CompanyController extends Controller
             $object = [
                 "id"=>$company->id,
                 "name"=>$company->name,
-                "description"=>$company->description,
-                "contact"=>$company->contact,
-                "type"=>$company->type,
+                "address"=>$company->adress,
+                "phone"=>$company->phone,
+                "email"=>$company->email,
+                "website"=>$company->website,
                 
             ];
                  
