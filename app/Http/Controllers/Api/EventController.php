@@ -134,4 +134,22 @@ public function destroy($id)
     return response()->json(null, 204);
 }
 
+public function updateFeedback(Request $request, $id)
+{
+    $event = Event::findOrFail($id);
+
+    // Validar la entrada
+    $validatedData = $request->validate([
+        'feedback' => 'required|string',
+    ]);
+
+    // Actualizar el campo feedback
+    $event->feedback = $validatedData['feedback'];
+    $event->save();
+
+    return response()->json([
+        'message' => 'Feedback actualizado correctamente.'
+    ], 200);
+}
+
 }

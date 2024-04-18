@@ -91,6 +91,8 @@ Route::post('/events/{eventId}/services', [EventServiceController::class, 'store
 Route::get('/events/{eventId}/services', [EventServiceController::class, 'index']);
 Route::delete('/events/{eventId}/services/{serviceId}', [EventServiceController::class, 'destroy']);
 
+Route::put('/events/{id}/feedback', [EventController::class, 'updateFeedback']);
+
 Route::middleware('auth:api')->get('/token', function (Request $request) {
     return $request->user()->createToken('AccessToken')->accessToken;
 });
